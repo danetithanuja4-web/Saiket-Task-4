@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Form</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+            max-width: 500px;
+            width: 100%;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 30px;
+            font-size: 28px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+            font-weight: 500;
+            font-size: 14px;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        textarea,
+        select {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e0e0e0;
+            border-radius: 5px;
+            font-size: 14px;
+            font-family: inherit;
+            transition: border-color 0.3s ease;
+        }
+
+        input[type="text"]:focus,
+        input[type="email"]:focus,
+        input[type="tel"]:focus,
+        textarea:focus,
+        select:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 5px rgba(102, 126, 234, 0.3);
+        }
+
+        input[type="text"]::placeholder,
+        input[type="email"]::placeholder,
+        input[type="tel"]::placeholder,
+        textarea::placeholder {
+            color: #999;
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .radio-group,
+        .checkbox-group {
+            margin-top: 10px;
+        }
+
+        .radio-item,
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        input[type="radio"],
+        input[type="checkbox"] {
+            width: 18px;
+            height: 18px;
+            margin-right: 10px;
+            cursor: pointer;
+            accent-color: #667eea;
+        }
+
+        .radio-item label,
+        .checkbox-item label {
+            margin: 0;
+            font-weight: normal;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            flex: 1;
+        }
+
+        .required {
+            color: #e74c3c;
+            font-weight: bold;
+        }
+
+        fieldset {
+            border: none;
+            padding: 0;
+            margin-bottom: 20px;
+        }
+
+        fieldset legend {
+            display: block;
+            margin-bottom: 15px;
+            color: #333;
+            font-weight: 500;
+            font-size: 14px;
+        }
+
+        button {
+            width: 100%;
+            padding: 14px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        button:active {
+            transform: translateY(0);
+        }
+
+        .form-note {
+            font-size: 12px;
+            color: #666;
+            margin-top: 5px;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Contact Form</h1>
+        <form action="#" method="post">
+            <!-- Full Name Field -->
+            <div class="form-group">
+                <label for="fullName">
+                    Full Name
+                    <span class="required">*</span>
+                </label>
+                <input 
+                    type="text" 
+                    id="fullName" 
+                    name="fullName" 
+                    placeholder="Enter your full name"
+                    required
+                    minlength="2"
+                >
+            </div>
+
+            <!-- Email Field -->
+            <div class="form-group">
+                <label for="email">
+                    Email Address
+                    <span class="required">*</span>
+                </label>
+                <input 
+                    type="email" 
+                    id="email" 
+                    name="email" 
+                    placeholder="your.email@example.com"
+                    required
+                >
+            </div>
+
+            <!-- Phone Number Field -->
+            <div class="form-group">
+                <label for="phone">Phone Number</label>
+                <input 
+                    type="tel" 
+                    id="phone" 
+                    name="phone" 
+                    placeholder="+1 (555) 000-0000"
+                >
+                <span class="form-note">Optional field</span>
+            </div>
+
+            <!-- Gender Radio Buttons -->
+            <fieldset>
+                <legend>
+                    Gender
+                    <span class="required">*</span>
+                </legend>
+                <div class="radio-group">
+                    <div class="radio-item">
+                        <input 
+                            type="radio" 
+                            id="male" 
+                            name="gender" 
+                            value="male"
+                            required
+                        >
+                        <label for="male">Male</label>
+                    </div>
+                    <div class="radio-item">
+                        <input 
+                            type="radio" 
+                            id="female" 
+                            name="gender" 
+                            value="female"
+                        >
+                        <label for="female">Female</label>
+                    </div>
+                    <div class="radio-item">
+                        <input 
+                            type="radio" 
+                            id="other" 
+                            name="gender" 
+                            value="other"
+                        >
+                        <label for="other">Other</label>
+                    </div>
+                </div>
+            </fieldset>
+
+            <!-- Interests Checkboxes -->
+            <fieldset>
+                <legend>Interests</legend>
+                <div class="checkbox-group">
+                    <div class="checkbox-item">
+                        <input 
+                            type="checkbox" 
+                            id="html" 
+                            name="interests" 
+                            value="html"
+                        >
+                        <label for="html">HTML</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input 
+                            type="checkbox" 
+                            id="css" 
+                            name="interests" 
+                            value="css"
+                        >
+                        <label for="css">CSS</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input 
+                            type="checkbox" 
+                            id="javascript" 
+                            name="interests" 
+                            value="javascript"
+                        >
+                        <label for="javascript">JavaScript</label>
+                    </div>
+                </div>
+                <span class="form-note">Select one or more</span>
+            </fieldset>
+
+            <!-- Country Dropdown -->
+            <div class="form-group">
+                <label for="country">
+                    Country
+                    <span class="required">*</span>
+                </label>
+                <select id="country" name="country" required>
+                    <option value="">Select your country</option>
+                    <option value="usa">United States</option>
+                    <option value="canada">Canada</option>
+                    <option value="uk">United Kingdom</option>
+                    <option value="australia">Australia</option>
+                    <option value="india">India</option>
+                    <option value="france">France</option>
+                    <option value="germany">Germany</option>
+                    <option value="japan">Japan</option>
+                </select>
+            </div>
+
+            <!-- Message Textarea -->
+            <div class="form-group">
+                <label for="message">
+                    Your Message
+                    <span class="required">*</span>
+                </label>
+                <textarea 
+                    id="message" 
+                    name="message" 
+                    placeholder="Please share your message or feedback here..."
+                    required
+                    minlength="10"
+                ></textarea>
+                <span class="form-note">Minimum 10 characters required</span>
+            </div>
+
+            <!-- Submit Button -->
+            <button type="submit">Send Message</button>
+        </form>
+    </div>
+</body>
+</html>
